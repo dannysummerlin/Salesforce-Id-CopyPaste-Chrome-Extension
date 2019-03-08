@@ -44,9 +44,9 @@ var makeClipboard = function() {
 }
 var pasteFromClipboardToNewTab = function() { pasteFromClipboard(true) }
 var pasteFromClipboard = function(newtab) {
-	cb = makeClipboard()
-	document.execCommand('paste')
-	var currentId = cb.value.trim()
+	var currentId = "" // this section altered to work with Firefox's navigator.clipboard API
+	navigator.clipboard.readText().then(clipText => {
+	currentId = clipText.trim()
 	if(currentId.match(/^\w{15}$/) != null || currentId.match(/^\w{18}$/) != null)
 		chrome.tabs.query({currentWindow: true, active: true}, function(tabs) {
 			if(newtab)
@@ -54,7 +54,7 @@ var pasteFromClipboard = function(newtab) {
 			else
 				chrome.tabs.update(tabs[0].id, {url: cleanUrl(tabs[0].url, currentId)})
 		})
-	cb.remove()
+	})
 	return true
 }
 var copyCleanUrl = function(link) { copyToClipboard(link, true) }

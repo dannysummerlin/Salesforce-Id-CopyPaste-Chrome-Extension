@@ -28,25 +28,25 @@
     "copyRecordId": {
       "description": "Copy the record ID",
       "suggested_key": {
-        "default": "Alt+C"
+        "default": "Ctrl+Alt+C"
       }
     },
     "copyCleanUrl": {
       "description": "Copy a clean URL",
       "suggested_key": {
-        "default": "Shift+Alt+C"
+        "default": "Alt+Shift+C"
       }
     },
     "pasteRecordId": {
       "description": "Paste the record ID",
       "suggested_key": {
-        "default": "Alt+V"
+        "default": "Ctrl+Alt+V"
       }
     },
     "pasteRecordIdToNewTab": {
       "description": "Paste the record ID to a new Tab",
       "suggested_key": {
-        "default": "Alt+B"
+        "default": "Ctrl+Alt+B"
       }
     }
   }
