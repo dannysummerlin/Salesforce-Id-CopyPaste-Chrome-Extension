@@ -67,8 +67,9 @@ var finishCopyToClipboard = (targetUrl, fullUrl)=>{
 		let label = ""
 		let width = "360px"
 		if(fullUrl === true) {
-			copyText = cleanUrl(targetUrl, copyId)
-			label = "URL: " + cb.textContent
+			let cleanUrlOutput = cleanUrl(targetUrl, copyId)
+			copyText = cleanUrlOutput
+			label = "URL: " + cleanUrlOutput
 			width = "600px"
 		}
 		else {

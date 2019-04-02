@@ -1,8 +1,12 @@
-var executeCopy = (copyText)=>{
+var makeClipboard = ()=>{
 	var clipboard = document.createElement("textarea")
 	var body = document.getElementsByTagName('body')[0]
 	body.appendChild(clipboard)
 	clipboard.select()
+	return clipboard
+}
+var executeCopy = (copyText)=>{
+	var clipboard = makeClipboard()
 	clipboard.textContent = copyText
 	clipboard.select()
 	document.execCommand('copy')
