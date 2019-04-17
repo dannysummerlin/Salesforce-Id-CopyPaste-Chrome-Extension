@@ -43,7 +43,7 @@ var addCopyListButtons = ()=>{
 	let LEX = window.location.href.includes("lightning")
 	let lists
 	if(LEX)
-		lists = document.querySelectorAll(".slds-table")
+		lists = document.querySelectorAll(".slds-table:not(.slds-no-cell-focus):not(.slds-no-row-hover)")
 	else {
 		lists = document.querySelectorAll(".listBody")
 		if(lists.length == 0)
