@@ -68,6 +68,8 @@ var addCopyListButtons = ()=>{
 		button.style.backgroundRepeat = "no-repeat"
 		button.innerText = "Copy List"
 		button.id = "copyList" + i
+		button.style.opacity = 0
+		button.style.transition = "opacity 0.2s"
 		button.addEventListener("click", (e)=>{ e.preventDefault(); copyList(e.target.parentElement.querySelectorAll("tr"));return false })
 		let target
 		if(LEX) {
@@ -83,18 +85,19 @@ var addCopyListButtons = ()=>{
 				button.style.position = "relative"
 			}
 		}
-		if(target != undefined)
+		if(target != undefined) {
 			target.prepend(button)
+			setTimeout(() => { button.style.opacity = 1 }, 500);
+		}
 	}
 }
 let tableLoop = (tableCount, manualDelay)=>{
-console.log('tableLoop', tableCount)
 	if(manualDelay != undefined)
 		setTimeout(()=>tableLoop(), manualDelay)
 	else
 		if(tableCount == undefined || tableCount < 1) {
 			let count = document.querySelectorAll(".slds-table").length + document.querySelectorAll(".listBody").length + document.querySelectorAll("table.list").length
-			setTimeout(()=>tableLoop(count), 1250)
+			setTimeout(()=>tableLoop(count), 1000)
 		} else {
 			document.querySelectorAll(".bBottom a.dndItem, .view-all-label").forEach((l)=>{ l.addEventListener('click', ()=>tableLoop(0, 300)) })
 			addCopyListButtons()
