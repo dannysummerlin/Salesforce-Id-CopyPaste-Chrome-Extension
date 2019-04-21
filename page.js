@@ -88,14 +88,15 @@ var addCopyListButtons = ()=>{
 	}
 }
 let tableLoop = (tableCount, manualDelay)=>{
+console.log('tableLoop', tableCount)
 	if(manualDelay != undefined)
 		setTimeout(()=>tableLoop(), manualDelay)
 	else
 		if(tableCount == undefined || tableCount < 1) {
 			let count = document.querySelectorAll(".slds-table").length + document.querySelectorAll(".listBody").length + document.querySelectorAll("table.list").length
-			setTimeout(()=>tableLoop(count), 50)
+			setTimeout(()=>tableLoop(count), 1250)
 		} else {
-			document.querySelectorAll(".bBottom a.dndItem").forEach((l)=>{ l.addEventListener('click', ()=>tableLoop(0, 300)) })
+			document.querySelectorAll(".bBottom a.dndItem, .view-all-label").forEach((l)=>{ l.addEventListener('click', ()=>tableLoop(0, 300)) })
 			addCopyListButtons()
 		}
 }
