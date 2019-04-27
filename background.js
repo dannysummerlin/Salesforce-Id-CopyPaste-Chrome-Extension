@@ -12,8 +12,8 @@ Copyright (c) 2019, Danny Summerlin
 Honestly, same.
 */
 ID_RE = [
-	/http[s]?\:\/\/.*force\.com\/.*([a-zA-Z0-9]{18})[^\w]/, // tries to find the first 18 digit
-	/http[s]?\:\/\/.*force\.com\/.*([a-zA-Z0-9]{15})[^\w]/ // falls back to 15 digit
+	/http[s]?\:\/\/.*force\.com\/.*([a-zA-Z0-9]{18})[^\w]*/, // tries to find the first 18 digit
+	/http[s]?\:\/\/.*force\.com\/.*([a-zA-Z0-9]{15})[^\w]*/ // falls back to 15 digit
 ]
 chrome.runtime.onInstalled.addListener(function() {
 	chrome.contextMenus.create({"title": "Copy Salesforce Id", "contexts" : ["page","link"], "onclick": copyToClipboard})
